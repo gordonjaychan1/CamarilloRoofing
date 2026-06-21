@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Camarillo Roofing Solution</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate: #1a1f2e;
+    --slate-mid: #252c3d;
+    --rust: #c0461c;
+    --rust-light: #e05a2b;
+    --gold: #d4a44c;
+    --cream: #f5f0e8;
+    --light: #faf8f4;
+    --text-muted: #7a8196;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--light);
+    color: var(--slate);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5%;
+    background: rgba(26,31,46,0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212,164,76,0.2);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .nav-logo-icon {
+    width: 38px; height: 38px;
+  }
+  .nav-logo-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    color: var(--cream);
+    letter-spacing: 1.5px;
+    line-height: 1.1;
+  }
+  .nav-logo-sub {
+    font-size: 0.6rem;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: rgba(245,240,232,0.75);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--rust);
+    color: white !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 3px;
+    letter-spacing: 1px !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--rust-light) !important; color: white !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--slate);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-texture {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.012) 40px,
+        rgba(255,255,255,0.012) 41px
+      );
+  }
+
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 9rem 5% 5rem 8%;
+    position: relative; z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(212,164,76,0.12);
+    border: 1px solid rgba(212,164,76,0.35);
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 0.45rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    width: fit-content;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    line-height: 0.95;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-title em {
+    font-style: italic;
+    font-family: 'DM Serif Display', serif;
+    color: var(--rust-light);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(245,240,232,0.6);
+    line-height: 1.7;
+    max-width: 420px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--rust);
+    color: white;
+    padding: 1rem 2.2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--rust-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--cream);
+    padding: 1rem 2.2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(245,240,232,0.3);
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-right {
+    position: relative; overflow: hidden;
+    animation: fadeIn 1s 0.4s ease both;
+  }
+  .hero-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, var(--slate) 0%, transparent 30%);
+    z-index: 1;
+  }
+  .hero-right::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, var(--slate) 0%, transparent 50%);
+    z-index: 1;
+  }
+  .hero-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.55;
+    filter: saturate(0.7);
+  }
+
+  .hero-stats {
+    position: absolute; bottom: 3rem; left: 8%;
+    display: flex; gap: 3rem; z-index: 2;
+    animation: fadeUp 0.6s 0.5s ease both;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    color: var(--cream);
+    line-height: 1;
+  }
+  .stat-num span { color: var(--rust-light); }
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    margin-top: 0.25rem;
+  }
+
+  /* ── DIAGONAL DIVIDER ── */
+  .divider-angled {
+    height: 80px;
+    background: var(--slate);
+    clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
+    margin-bottom: -2px;
+  }
+
+  /* ── SERVICES ── */
+  .services {
+    background: var(--light);
+    padding: 6rem 8%;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--slate);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .section-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 3.5rem;
+    font-weight: 300;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5px;
+    background: rgba(26,31,46,0.08);
+    border: 1px solid rgba(26,31,46,0.08);
+  }
+
+  .service-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--rust);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(26,31,46,0.1); }
+
+  .service-icon {
+    width: 52px; height: 52px;
+    background: rgba(192,70,28,0.08);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  .service-icon svg { width: 26px; height: 26px; stroke: var(--rust); fill: none; stroke-width: 1.8; }
+
+  .service-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--slate);
+    margin-bottom: 0.75rem;
+  }
+  .service-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── WHY US ── */
+  .why {
+    background: var(--slate-mid);
+    padding: 6rem 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .why-left .section-title,
+  .why-left .section-label { color: var(--cream); }
+  .why-left .section-title span { color: var(--rust-light); }
+  .why-left .section-desc { color: rgba(245,240,232,0.5); }
+
+  .why-list { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
+  .why-item {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    padding: 1.25rem 1.5rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 4px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .why-item:hover { background: rgba(255,255,255,0.07); border-color: rgba(212,164,76,0.25); }
+  .why-check {
+    width: 28px; height: 28px; min-width: 28px;
+    background: rgba(192,70,28,0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+  .why-check svg { width: 14px; height: 14px; stroke: var(--rust-light); stroke-width: 2.5; fill: none; }
+  .why-item-title { font-weight: 600; color: var(--cream); font-size: 0.95rem; margin-bottom: 0.3rem; }
+  .why-item-desc { font-size: 0.84rem; color: rgba(245,240,232,0.45); line-height: 1.6; font-weight: 300; }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--cream);
+    padding: 6rem 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-info-item {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+  .contact-icon {
+    width: 44px; height: 44px; min-width: 44px;
+    background: var(--rust);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .contact-icon svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 1.8; }
+  .contact-info-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.35rem; }
+  .contact-info-value { font-size: 0.95rem; color: var(--slate); font-weight: 500; line-height: 1.5; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.75rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--slate); }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 0.85rem 1rem;
+    border: 1.5px solid rgba(26,31,46,0.15);
+    border-radius: 3px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--slate);
+    background: white;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--rust); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--slate);
+    padding: 3rem 8%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+    border-top: 1px solid rgba(212,164,76,0.15);
+  }
+
+  .footer-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: var(--cream);
+    letter-spacing: 1.5px;
+  }
+  .footer-brand span { color: var(--rust-light); }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px; height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
+  }
+  .hamburger span {
+    display: block;
+    height: 2px;
+    background: var(--cream);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(26,31,46,0.98);
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu .mobile-cta {
+    background: var(--rust);
+    color: white !important;
+    padding: 0.9rem 2.5rem;
+    border-radius: 3px;
+    font-size: 1.4rem !important;
+  }
+  .mobile-menu .mobile-cta:hover { background: var(--rust-light) !important; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 8rem 6% 4rem; }
+    .why { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 6%; }
+    .contact { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 6%; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .services { padding: 4rem 6%; }
+    footer { flex-direction: column; align-items: flex-start; text-align: left; padding: 2.5rem 6%; }
+  }
+
+  @media (max-width: 560px) {
+    .form-row { grid-template-columns: 1fr; }
+    .hero-stats { gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg class="nav-logo-icon" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="19,4 35,18 35,36 3,36 3,18" fill="#c0461c" opacity="0.9"/>
+      <polygon points="19,4 35,18 3,18" fill="#d4a44c"/>
+      <rect x="14" y="24" width="10" height="12" fill="rgba(26,31,46,0.5)"/>
+    </svg>
+    <div>
+      <div class="nav-logo-text">Camarillo Roofing</div>
+      <div class="nav-logo-sub">Solution</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="tel:+17077167720" class="nav-cta">Call Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#why" class="mobile-link">About</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="tel:+17077167720" class="mobile-cta mobile-link">Call Now</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-left">
+    <div class="hero-badge">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="var(--gold)"><circle cx="5" cy="5" r="5"/></svg>
+      Licensed &amp; Insured · Serving the Bay Area
+    </div>
+    <h1 class="hero-title">
+      Built to<br><em>Last.</em><br>Roofs that<br>Protect.
+    </h1>
+    <p class="hero-sub">
+      Expert roofing installations, repairs, and replacements for residential and commercial properties. Quality craftsmanship, guaranteed.
+    </p>
+    <div class="hero-actions" style="margin-bottom:5rem;">
+      <a href="#contact" class="btn-primary">Get a Free Estimate</a>
+      <a href="tel:+17077167720" class="btn-outline">(707) 716-7720</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80" alt="Roofer working on a roof" />
+  </div>
+  <div class="hero-stats" style="bottom:1.5rem;">
+    <div>
+      <div class="stat-num">5<span>+</span></div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div>
+      <div class="stat-num">100<span>+</span></div>
+      <div class="stat-label">Projects Done</div>
+    </div>
+    <div>
+      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-label">Satisfaction Rate</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-angled"></div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="reveal">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-desc">From full replacements to emergency repairs, we handle every roofing need with precision and care.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="service-name">Roof Installation</div>
+      <p class="service-desc">New construction roofing using premium materials tailored to your property's style and structural requirements.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <div class="service-name">Roof Repair</div>
+      <p class="service-desc">Fast, reliable fixes for leaks, storm damage, missing shingles, and all types of roofing issues.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+      </div>
+      <div class="service-name">Roof Replacement</div>
+      <p class="service-desc">Complete tear-off and re-roofing services when repairs are no longer sufficient. Done right, on time.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <div class="service-name">Inspections</div>
+      <p class="service-desc">Thorough roof assessments to identify wear, vulnerabilities, and potential problems before they escalate.</p>
+    </div>
+<div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      </div>
+      <div class="service-name">Gutters &amp; Flashing</div>
+      <p class="service-desc">Gutter installation, cleaning, and flashing repairs to ensure proper drainage and waterproofing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="why-left reveal">
+    <div class="section-label" style="color:var(--gold)">Why Choose Us</div>
+    <h2 class="section-title" style="color:var(--cream)">Roofing Done <span>Right.</span></h2>
+    <p class="section-desc">We bring honesty, skill, and a commitment to quality that other contractors simply don't match.</p>
+  </div>
+  <ul class="why-list reveal">
+    <li class="why-item">
+      <div class="why-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div>
+        <div class="why-item-title">Licensed &amp; Fully Insured</div>
+        <div class="why-item-desc">Work with peace of mind knowing you're protected. We carry full liability and workers' comp coverage.</div>
+      </div>
+    </li>
+    <li class="why-item">
+      <div class="why-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div>
+        <div class="why-item-title">Transparent, Upfront Pricing</div>
+        <div class="why-item-desc">No hidden fees, no surprises. We provide detailed written estimates before any work begins.</div>
+      </div>
+    </li>
+    <li class="why-item">
+      <div class="why-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div>
+        <div class="why-item-title">Premium Materials Only</div>
+        <div class="why-item-desc">We source top-tier roofing materials with manufacturer warranties to ensure lasting durability.</div>
+      </div>
+    </li>
+    <li class="why-item">
+      <div class="why-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div>
+        <div class="why-item-title">Local &amp; Family-Owned</div>
+        <div class="why-item-desc">Rooted in Fairfield, CA — we treat every customer like a neighbor, because they are.</div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="reveal">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Request a<br>Free Estimate</h2>
+    <p class="section-desc" style="margin-bottom:1.25rem">Reach out today and we'll get back to you within 24 hours with a no-obligation quote.</p>
+    <p style="font-size:0.9rem;color:var(--slate);font-weight:500;margin-bottom:2.5rem">— <em>John Camarillo</em>, Owner &amp; Founder</p>
+
+    <div class="contact-info-item">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div>
+        <div class="contact-info-label">Address</div>
+        <div class="contact-info-value">512 Gregory Lane<br>Fairfield, CA 94533</div>
+      </div>
+    </div>
+
+    <div class="contact-info-item">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <div>
+        <div class="contact-info-label">Phone</div>
+        <div class="contact-info-value"><a href="tel:+17077167720" style="color:var(--slate);text-decoration:none">+1 (707) 716-7720</a></div>
+      </div>
+    </div>
+
+    <div class="contact-info-item">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div>
+        <div class="contact-info-label">Hours</div>
+        <div class="contact-info-value">Mon – Sun: 8:00 AM – 6:00 PM</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="John" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="(707) 000-0000">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="john@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Service Needed</label>
+        <select>
+          <option value="">Select a service…</option>
+          <option>Roof Installation</option>
+          <option>Roof Repair</option>
+          <option>Roof Replacement</option>
+          <option>Roof Inspection</option>
+          <option>Storm Damage</option>
+          <option>Gutters &amp; Flashing</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us about your project or issue…"></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="align-self:flex-start;margin-top:0.5rem">Send Message →</button>
+      <div id="form-success" style="display:none;color:var(--rust);font-size:0.88rem;font-weight:500;margin-top:0.5rem">✓ Message sent! We'll be in touch within 24 hours.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Camarillo <span>Roofing</span> Solution</div>
+  <div class="footer-copy">© 2026 Camarillo Roofing Solution · 512 Gregory Lane, Fairfield, CA 94533</div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#why">About</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+17077167720">Call Us</a>
+  </div>
+</footer>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+  }
+</script>
+</body>
+</html>
