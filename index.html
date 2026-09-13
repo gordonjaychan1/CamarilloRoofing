@@ -216,26 +216,6 @@
     filter: saturate(0.7);
   }
 
-  .hero-stats {
-    position: absolute; bottom: 3rem; left: 8%;
-    display: flex; gap: 3rem; z-index: 2;
-    animation: fadeUp 0.6s 0.5s ease both;
-  }
-  .stat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.8rem;
-    color: var(--cream);
-    line-height: 1;
-  }
-  .stat-num span { color: var(--blue-light); }
-  .stat-label {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 500;
-    margin-top: 0.25rem;
-  }
 
   /* ── DIAGONAL DIVIDER ── */
   .divider-angled {
@@ -612,9 +592,6 @@
   @media (max-width: 560px) {
     .form-row { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
-    .hero-stats { gap: 1rem; left: 6%; right: 6%; justify-content: space-between; }
-    .stat-num { font-size: 2.3rem; }
-    .stat-label { font-size: 0.62rem; letter-spacing: 1px; }
   }
 </style>
 </head>
@@ -663,27 +640,13 @@
     <p class="hero-sub">
       Shingle, tile, metal, and TPO roofing, plus rain gutters and maintenance, for homes and businesses across the Bay Area. Quality craftsmanship, guaranteed.
     </p>
-    <div class="hero-actions" style="margin-bottom:5rem;">
+    <div class="hero-actions">
       <a href="#contact" class="btn-primary">Get a Free Estimate</a>
       <a href="tel:+17077167720" class="btn-outline">(707) 716-7720</a>
     </div>
   </div>
   <div class="hero-right">
     <img class="hero-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80" alt="Roofer working on a roof" />
-  </div>
-  <div class="hero-stats" style="bottom:1.5rem;">
-    <div>
-      <div class="stat-num">5<span>+</span></div>
-      <div class="stat-label">Years Experience</div>
-    </div>
-    <div>
-      <div class="stat-num">100<span>+</span></div>
-      <div class="stat-label">Projects Done</div>
-    </div>
-    <div>
-      <div class="stat-num">100<span>%</span></div>
-      <div class="stat-label">Satisfaction Rate</div>
-    </div>
   </div>
 </section>
 
@@ -857,7 +820,7 @@
       </div>
       <div>
         <div class="contact-info-label">Hours</div>
-        <div class="contact-info-value">Mon – Sun: 8:00 AM – 6:00 PM</div>
+        <div class="contact-info-value">Mon – Sat: 7:00 AM – 5:00 PM<br>Sunday: Closed</div>
       </div>
     </div>
   </div>
