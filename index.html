@@ -298,13 +298,6 @@
     transition: transform 0.5s ease;
   }
   .service-card:hover .service-photo img { transform: scale(1.05); }
-  .service-photo-pattern {
-    display: flex; align-items: center; justify-content: center;
-    background:
-      repeating-linear-gradient(90deg, transparent 0 34px, rgba(255,255,255,0.08) 34px 37px, transparent 37px 40px),
-      linear-gradient(160deg, var(--slate-mid), var(--slate));
-  }
-  .service-photo-pattern svg { width: 56px; height: 56px; stroke: var(--sky); fill: none; stroke-width: 1.4; }
 
   .service-name {
     font-family: 'DM Serif Display', serif;
@@ -725,10 +718,7 @@
       <p class="service-desc">Classic tile roofs installed, replaced, and repaired to hold up beautifully for years to come.</p>
     </div>
     <div class="service-card">
-      <!-- No metal roof photo yet: swap this div for <div class="service-photo"><img src="..."></div> when one is available -->
-      <div class="service-photo service-photo-pattern">
-        <svg viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12"/><line x1="8" y1="11" x2="8" y2="21"/><line x1="12" y1="8" x2="12" y2="21"/><line x1="16" y1="11" x2="16" y2="21"/></svg>
-      </div>
+      <div class="service-photo"><img src="images/services/metal.jpg" alt="Crew member working on the roof of a metal building" loading="lazy"></div>
       <div class="service-name">Metal Roofing</div>
       <p class="service-desc">Long-lasting, low-maintenance metal roofs built to stand up to sun, wind, and rain.</p>
     </div>
