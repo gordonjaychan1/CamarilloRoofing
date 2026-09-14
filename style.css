@@ -353,6 +353,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .tile:hover img { transform: scale(1.06); }
 .tile-photo img[src*="tpo"] { object-position: center 20%; }
+.tile-photo img[src*="metal"] { object-position: center top; } /* keep the crew member on the roof in frame */
 .tile-body { padding: 26px; max-width: 460px; }
 .tile-num { font-size: 13px; font-weight: 700; letter-spacing: .12em; opacity: .75; }
 .tile h3 { font-size: clamp(24px, 2.3vw, 32px); font-weight: 800; font-stretch: 112%; letter-spacing: -.02em; line-height: 1.1; margin: 6px 0 8px; }
@@ -367,13 +368,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   transition: transform .35s var(--ease), background .25s, color .25s;
 }
 .tile:hover .tile-go { transform: scale(1); background: var(--blue); color: #fff; }
-/* Metal: no photo yet, so draw standing-seam panels in brand blue */
-.tile-metal {
-  background:
-    linear-gradient(180deg, rgba(11,22,51,0) 30%, rgba(11,22,51,.55) 100%),
-    repeating-linear-gradient(90deg, rgba(255,255,255,0) 0 44px, rgba(255,255,255,.22) 44px 46px, rgba(0,0,0,.14) 46px 49px, rgba(255,255,255,0) 49px 60px),
-    linear-gradient(135deg, #3a6ae0 0%, var(--blue) 45%, var(--navy) 100%);
-}
 
 /* ═════════ DARK: PROCESS + REEL ═════════ */
 .dark {
