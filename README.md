@@ -1,9 +1,9 @@
-# CamarilloRoofing2
+# CamarilloRoofing
 
 A second, modern design option for Camarillo Roofing Solution (Fairfield, CA).
 
-Live site: https://gordonjaychan1.github.io/CamarilloRoofing2/
-First design: https://gordonjaychan1.github.io/CamarilloRoofing/
+Live site: https://gordonjaychan1.github.io/CamarilloRoofing/
+First design: https://gordonjaychan1.github.io/CamarilloRoofingv0/
 
 - `index.html`: page content
 - `style.css`: design (brand colors are at the top)
